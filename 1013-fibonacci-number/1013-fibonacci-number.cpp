@@ -1,30 +1,21 @@
-#include <unordered_map>
-
 class Solution {
-    std::unordered_map<int, int> dp;
-
-public:
-    Solution() {
-        dp[0] = 0;
-        dp[1] = 1;
-    }
-
-    int fib(int n) {
-        if(n == 0 || n == 1){
-            return n;
+private:
+    int helper(int n, vector<int> &dp){
+        if(n == 0){
+            return 0;
         }
-        int first, second;
-        if (dp.find(n - 1) != dp.end()) {
-            second = dp[n - 1];
-        } else {
-            second = fib(n - 1);
+        if(n <= 1){
+            return 1;
         }
-        if (dp.find(n - 2) != dp.end()) {
-            first = dp[n - 2];
-        } else {
-            first = fib(n - 2);
+        if(dp[n] != -1){
+            return dp[n];
         }
-        dp[n] = first + second;
+        dp[n] = helper(n-1, dp) + helper(n-2, dp);
         return dp[n];
+    }
+public:
+    int fib(int n) {
+        vector<int> dp (n+1, -1);
+        return helper(n, dp);
     }
 };
