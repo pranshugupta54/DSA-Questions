@@ -1,17 +1,18 @@
 class Solution {
 private:
-    void helper(vector<char>& str, int left, int right){
+    void helper(vector<char>& str, int left, int right, char temp){
         if(left >= right)
             return;
-        char temp = str[left];
+        temp = str[left];
         str[left] = str[right];
         str[right] = temp;
         left++;
         right--;
-        helper(str,left,right);
+        helper(str,left,right, temp);
     }
 public:
     void reverseString(vector<char>& s) {
-        helper(s, 0, s.size()-1);
+        char temp;
+        helper(s, 0, s.size()-1, temp);
     }
 };
