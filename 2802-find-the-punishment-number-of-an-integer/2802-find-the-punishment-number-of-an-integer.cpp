@@ -10,15 +10,10 @@ private:
             return true;
             else return false;
         } 
-          try {
+
             if (stoi(str) == num) {
                 return true;
             }
-        } catch (const std::invalid_argument& e) {
-            // Handle the invalid argument exception
-            cout << "str:" << str <<endl;
-            return false;
-        }
         for(int i = 1; i <= size; i++){
             string first = str.substr(0, i);
             string two = str.substr(i, size-i);
