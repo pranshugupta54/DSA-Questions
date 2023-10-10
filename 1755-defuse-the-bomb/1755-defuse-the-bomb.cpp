@@ -1,11 +1,11 @@
 class Solution {
 private:
-    vector<int> zero(const vector<int>& code, int k){
+    vector<int> zero(const vector<int> code, int k){
         int size = code.size();
         vector<int> temp(size,0);
         return temp;
     }
-    vector<int> greater(const vector<int>& code, int k){
+    vector<int> greater(const vector<int> code, int k){
         vector<int> ans(code.size());
         for(int i = 0; i < code.size(); i++){
             int temp = 1;
@@ -18,7 +18,7 @@ private:
         }
         return ans;
     }
-    vector<int> less(const vector<int>& code, int k){
+    vector<int> less(const vector<int> code, int k){
         vector<int> ans(code.size(), -1);
         cout << "HERE";
         k = -1*k;
